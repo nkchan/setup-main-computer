@@ -1,0 +1,22 @@
+---
+- name: Install KVM and related packages
+  apt:
+    name:
+      - qemu-kvm
+      - libvirt-daemon-system
+      - libvirt-clients
+      - bridge-utils
+      - virt-manager
+    state: present
+
+- name: Start and enable libvirtd service
+  systemd:
+    name: libvirtd
+    state: started
+    enabled: yes
+
+- name: Add user to libvirt group
+  user:
+    name: nkchan
+    groups: libvirt
+    append: yes

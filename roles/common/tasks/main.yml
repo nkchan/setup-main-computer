@@ -1,0 +1,11 @@
+---
+- name: Update and upgrade packages
+  apt:
+    update_cache: yes
+    upgrade: yes
+
+- name: install command using apt
+  apt:
+    name: 
+      - tmux
+      - git

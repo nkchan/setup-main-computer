@@ -1,0 +1,14 @@
+---
+- name: Install Containerlab dependencies
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+    state: present
+
+- name: Install Containerlab
+  shell: bash -c "$(curl -sL https://get.containerlab.dev)"
+
