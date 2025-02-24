@@ -1,0 +1,2 @@
+- name: Reconfigure keyboard
+  command: dpkg-reconfigure -f noninteractive keyboard-configuration

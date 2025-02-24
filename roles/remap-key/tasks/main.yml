@@ -1,0 +1,11 @@
+- name: Update keyboard configuration
+  lineinfile:
+    path: /etc/default/keyboard
+    regexp: '^XKBOPTIONS='
+    line: 'XKBOPTIONS="ctrl:nocaps"'
+  notify: Reconfigure keyboard
+
+- name: Ensure changes are applied immediately
+  command: setxkbmap -option ctrl:nocaps
+  changed_when: false
+
